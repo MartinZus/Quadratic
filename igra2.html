@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Igra</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="igra.css"/>
+    </head>
+    <body>
+        <table border="1" cellspacing="0" cellpading="0" width="50%" align="center">
+            <tr>
+                <td>
+                    <h2>{{ime1}}</h2>
+                </td>
+                <td>
+                    <h3>{{znesek1}}</h3>
+                </td>
+                <td>
+                    <h2>{{ime2}}</h2>
+                </td>
+                <td>
+                    <h3>{{znesek2}}</h3>
+                </td>
+            </tr>
+        </table>
+        <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
+            %for n in range(velikost):
+            <tr>
+                %for m in range(velikost):
+                <td>
+
+                </td>
+                %end
+            </tr>
+            %end
+        </table>
+        <p>
+            Izberite začetni položaj:
+                <form action="/igralnica2/">
+                    <select name="polozaj0" size="4">
+                        <option selected="selected" value="0">1. stolpec</option>
+                        <option value="1">2. stolpec</option>
+                        <option value="2">3. stolpec</option>
+                        <option value="3">4. stolpec</option>
+                    </select>
+                    <input type="submit" value="Izberi!">
+                </form>
+        </p>
+    </body>
+</html>

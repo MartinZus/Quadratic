@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Prva stran</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="igra.css"/>
+    </head>
+    <body>
+        <table border="1" cellspacing="0" cellpading="0" width="30%" align="center">
+            <tr>
+                <td>
+                    <h2>{{ime1}}</h2>
+                </td>
+                <td>
+                    <h3>{{znesek1}}</h3>
+                </td>
+                <td>
+                    <h2>{{ime2}}</h2>
+                </td>
+                <td>
+                    <h3>{{znesek2}}</h3>
+                </td>
+            </tr>
+        </table>
+        
+        <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
+            %for n in range(velikost):
+            <tr>
+                %for n in range(velikost):
+                <td>
+
+                </td>
+                %end
+            </tr>
+            %end
+        </table>
+        <form action="/stave1/">
+            <input type="submit" value="nadaljuj">
+        </form>
+    </body>
+</html>

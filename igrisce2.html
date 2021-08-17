@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Igra</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="igra.css"/>
+    </head>
+    <body>
+        %if igra.denar1 > 0 and igra.denar2 > 0: 
+        <table border="1" cellspacing="0" cellpading="0" width="50%" align="center">
+            <tr>
+                <td>
+                    <h2>{{ime1}}</h2>
+                </td>
+                <td>
+                    <h3>{{igra.denar2}}</h3>
+                </td>
+                <td>
+                    <h2>{{ime2}}</h2>
+                </td>
+                <td>
+                    <h3>{{igra.denar1}}</h3>
+                </td>
+            </tr>
+        </table>
+        <p>Igralec {{ime2}} je na vaš trenutni položaj stavil {{mon}}.</p>
+        <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
+            %for n in range(velikost):
+            <tr>
+                %for m in range(velikost):
+                <td>
+                    %if igra.vrstica == n and igra.stolpec == m:
+                    X
+                    %end
+                </td>
+                %end
+            </tr>
+            %end
+        </table>
+        %if igra.vrstica != 0:
+        Vnesite željen premik (L(levo), D(desno), G(gor)):
+        <form action="/gibanica2/">
+            <input type="text" name="vnos">
+            <input type="submit" value="Premakni se">
+        </form>
+        %else:
+        <form action="/stave1/">
+            <input type="submit" value="Naslednji krog">
+        </form>
+        %end
+        %else:
+        %if igra.denar2 > 0:
+        <h1>Igralec z imenom {{ime1}} je zamgovalec!!!</h1>
+        <h2>Upam, da ste uživali v igri Quadratic</h2>
+        %else:
+        <h1>Igralec z imenom {{ime2}} je zamgovalec!!!</h1>
+        <h2>Upam, da ste uživali v igri Quadratic</h2>
+        %end
+        %end
+    </body>
+</html>

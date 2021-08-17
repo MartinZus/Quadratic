@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Prva stran</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="prva.css"/>
+    </head>
+    <body>
+        %if n == 0:
+        <h1>{{ime1}}, vnesite svoje stave. Vnesti morate točno toliko stav: {{velikost}}.</h1> 
+        <h2>Prosim vnašajte številke in ne česa drugega, da se program ne sesuje.</h2>
+        %elif n == 1:
+        <h1>Niste vnesli pravo število stav. Vnesti morate točno toliko stav:{{velikost}}.</h1>
+        <h2>Prosim vnašajte številke in ne česa drugega, da se program ne sesuje.</h2>
+        %else:
+        <h1>Na računu nimate dovolj denarja za takšno stavo. Vnesti morate točno toliko stav: {{velikost}}.</h1>
+        <h2>Prosim vnašajte številke in ne česa drugega, da se program ne sesuje.</h2>
+        %end
+        <form action="/igra1/">
+        <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
+            %for n in range(velikost):
+            <tr>
+                %for m in range(velikost):
+                <td>
+                    <input type="text" name="({{n}},{{m}})">
+                </td> 
+                %end
+            </tr>
+            %end
+        </table>
+        <input type="submit" value="Stavi!" name="potrditev">
+        </form> 
+    </body>
+</html>
