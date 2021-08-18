@@ -1,0 +1,16 @@
+.polje {
+    background-color: red;
+}
+table {
+    background-color: bisque;
+}
+
+body {
+    background-color: chartreuse;
+}
+.gumb {
+    text-align: center;
+}
+h1, h2, h3, p {
+    text-align: center;
+}

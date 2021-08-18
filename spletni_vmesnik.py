@@ -1,6 +1,9 @@
 import bottle
 from model import Igra, Quadratic
 
+@bottle.route('/static/<filepath:path>')
+def server_static(filepath):
+    return bottle.static_file(filepath, root='static')
 
 @bottle.get("/")
 def prvi_zaslon():

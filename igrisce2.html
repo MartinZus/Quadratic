@@ -2,7 +2,7 @@
     <head>
         <title>Igra</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="bootstrap.css"/>
+        <link rel="stylesheet" href="/static/igra.css"/>
     </head>
     <body>
         %if igra.denar1 > 0 and igra.denar2 > 0: 
@@ -22,38 +22,52 @@
                 </td>
             </tr>
         </table>
-        <p>Igralec {{ime2}} je na vaš trenutni položaj stavil {{mon}}.</p>
+        <h2 class="gumb">Igralec {{ime2}} je na vaš trenutni položaj stavil {{mon}}.</h2>
         <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
             %for n in range(velikost):
             <tr>
                 %for m in range(velikost):
-                <td>
-                    %if igra.vrstica == n and igra.stolpec == m:
-                    X
-                    %end
+                %if igra.vrstica == n and igra.stolpec == m:
+                <td class="polje">
+                    
                 </td>
+                %else:
+                <td>
+
+                </td>
+                %end
                 %end
             </tr>
             %end
         </table>
         %if igra.vrstica != 0:
-        Vnesite željen premik (L(levo), D(desno), G(gor)):
-        <form action="/gibanica2/">
+        <h2 class="gumb">Vnesite željen premik (L(levo), D(desno), G(gor)):</h2>
+        <h2>
+        <form action="/gibanica2/" class="gumb">
             <input type="text" name="vnos">
             <input type="submit" value="Premakni se">
         </form>
+        </h2>
         %else:
-        <form action="/stave1/">
+        <h2>
+        <form action="/stave1/" class="gumb">
             <input type="submit" value="Naslednji krog">
         </form>
+        </h2>
         %end
         %else:
         %if igra.denar2 > 0:
         <h1>Igralec z imenom {{ime1}} je zamgovalec!!!</h1>
         <h2>Upam, da ste uživali v igri Quadratic</h2>
+        <form action="/" class="gumb">
+            <input type="submit" value="Domov">
+        </form>
         %else:
         <h1>Igralec z imenom {{ime2}} je zamgovalec!!!</h1>
         <h2>Upam, da ste uživali v igri Quadratic</h2>
+        <form action="/" class="gumb">
+            <input type="submit" value="Domov">
+        </form>
         %end
         %end
     </body>

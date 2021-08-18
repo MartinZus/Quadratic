@@ -2,22 +2,26 @@
     <head>
         <title>Prva stran</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="bootstrap.css"/>
+        <link rel="stylesheet" href="/static/igra.css"/>
     </head>
     <body>
+        <br />
+        <br />
         <h3>
+        <blockquote>
         <form action="/quadratic/">
-            Ime prvega igralca: <input type="text" name="ime prvega igralca">
-            Ime drugega igralca: <input type="text" name="ime drugega igralca">
-            Začetni znesek (200 - 5000): <input type="text" name="znesek">
-            Velikost (3 - 8): <input type="text" name="velikost">
-            <input type="submit" value="Začni igro">
+            Ime prvega igralca: <input type="text" name="ime prvega igralca"> <br />
+            Ime drugega igralca: <input type="text" name="ime drugega igralca"> <br />
+            Začetni znesek (200 - 5000): <input type="text" name="znesek"> <br />
+            Velikost (3 - 8): <input type="text" name="velikost"> <br />
+            <h2><input type="submit" value="Začni igro"></h2>
         </form>
+        </blockquote>
         </h3>
-        %if n == 1:
+        %if m == 1:
         <h2>Začetni znesek se mora gibati med 200 in 5000</h2>
         %end
-        %if m == 1:
+        %if n == 1:
         <h2>Velikost tabele se mora gibati med 3 in 8</h2>
     </body>
 </html>
