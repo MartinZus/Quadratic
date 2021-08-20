@@ -13,7 +13,7 @@
                 <td>
                     <h3>{{znesek1}}</h3>
                 </td>
-                <td>
+                <td class="poteza">
                     <h2>{{ime2}}</h2>
                 </td>
                 <td>
@@ -32,6 +32,8 @@
             </tr>
             %end
         </table>
+        %if velikost == 4:
+        %if jezik == "S":
         <p>
             <h2 class="gumb">Izberite začetni položaj:</h2>
                 <form action="/igralnica1/" class="gumb">
@@ -44,5 +46,117 @@
                     <input type="submit" value="Izberi!">
                 </form>
         </p>
+        %elif jezik == "E":
+        <p>
+            <h2 class="gumb">Choose your position starting position:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="4">
+                        <option selected="selected" value="0"> the 1st column</option>
+                        <option value="1"> the 2nd column</option>
+                        <option value="2">the 3rd column</option>
+                        <option value="3">the 4th column</option>
+                    </select>
+                    <input type="submit" value="Choose!">
+                </form>
+        </p>
+        %else:
+        <p>
+            <h2 class="gumb">Wählen Sie die Angangsposition aus:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="4">
+                        <option selected="selected" value="0">1. Spalte</option>
+                        <option value="1">2. Spalte</option>
+                        <option value="2">3. Spalte</option>
+                        <option value="3">4. Spalte</option>
+                    </select>
+                    <input type="submit" value="Auswähl!">
+                </form>
+        </p>
+        %end
+
+        %elif velikost == 3:
+        %if jezik == "S":
+        <p>
+            <h2 class="gumb">Izberite začetni položaj:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="3">
+                        <option selected="selected" value="0">1. stolpec</option>
+                        <option value="1">2. stolpec</option>
+                        <option value="2">3. stolpec</option>
+                    </select>
+                    <input type="submit" value="Izberi!">
+                </form>
+        </p>
+        %elif jezik == "E":
+        <p>
+            <h2 class="gumb">Choose your position starting position:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="3">
+                        <option selected="selected" value="0"> the 1st column</option>
+                        <option value="1"> the 2nd column</option>
+                        <option value="2">the 3rd column</option>
+                    </select>
+                    <input type="submit" value="Choose!">
+                </form>
+        </p>
+        %else:
+        <p>
+            <h2 class="gumb">Wählen Sie die Angangsposition aus:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="3">
+                        <option selected="selected" value="0">1. Spalte</option>
+                        <option value="1">2. Spalte</option>
+                        <option value="2">3. Spalte</option>
+                    </select>
+                    <input type="submit" value="Auswähl!">
+                </form>
+        </p>
+        %end
+
+        %else:
+        %if jezik == "S":
+        <p>
+            <h2 class="gumb">Izberite začetni položaj:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="4">
+                        <option selected="selected" value="0">1. stolpec</option>
+                        <option value="1">2. stolpec</option>
+                        <option value="2">3. stolpec</option>
+                        <option value="3">4. stolpec</option>
+                        <option value="4">5. stolpec</option>
+                    </select>
+                    <input type="submit" value="Izberi!">
+                </form>
+        </p>
+        %elif jezik == "E":
+        <p>
+            <h2 class="gumb">Choose your position starting position:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="4">
+                        <option selected="selected" value="0"> the 1st column</option>
+                        <option value="1"> the 2nd column</option>
+                        <option value="2">the 3rd column</option>
+                        <option value="3">the 4th column</option>
+                        <option value="4">the 5th column</option>
+                    </select>
+                    <input type="submit" value="Choose!">
+                </form>
+        </p>
+        %else:
+        <p>
+            <h2 class="gumb">Wählen Sie die Angangsposition aus:</h2>
+                <form action="/igralnica1/" class="gumb">
+                    <select name="polozaj0" size="4">
+                        <option selected="selected" value="0">1. Spalte</option>
+                        <option value="1">2. Spalte</option>
+                        <option value="2">3. Spalte</option>
+                        <option value="3">4. Spalte</option>
+                        <option value="4">5. Spalte</option>
+                    </select>
+                    <input type="submit" value="Auswähl!">
+                </form>
+        </p>
+        %end
+        %end
     </body>
 </html>

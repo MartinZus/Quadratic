@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="/static/igra.css"/>
     </head>
     <body>
+        %if jezik == "S":
         <h1>Navodila</h1>
         <h2>Pred začetkom</h2>
         <p>
@@ -37,10 +38,97 @@
         </p>
         <h3>
         Na tej povezavi se lahko učite ob primeru: 
-        <form class="gumb">
+        <form class="gumb" action="/primer/">
             <input type="submit" value="Zgled">
         </form>
         </h3>
         <h3>UŽIVAJTE V IGRI QUADRATIC!</h3>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="Domov">
+        </form>
+
+        %elif jezik == "E":
+        <h1>Playing instructions</h1>
+        <h2>Before the beginning</h2>
+        <p>
+            The game is made in the way that two persons play it on the same computer at the same time. 
+        </p>
+        <p>
+            At the beginning of the game both players write their names. Furthermore, the size of the table and the initial<br />
+            amount that will be on the account of both players must be chosen.
+        </p>
+        <h2>Laying the bets</h2>
+        <p>
+            When the game begins it is first player's round that he lays his bets. The way to do this is to put bets on that many fields <br />
+            as there is the size of the table (for example: if the size of the table is 4x4, he puts bets on 4 places). Important thing  <br />
+            is that he puts bets on exactly that many fields, not more or fewer. Laid money is transfered from first player's account to <br />
+            the account of the second player. At this time, when the first one bets, the second one should look away.
+        </p>
+        <h2>Crossing the table</h2>
+        <p>
+            After bets the second player crosses the table. He himself chooses the initial position. After that he continues with gradual steps<br />
+            left, right or up, till the time he reaches the first row. If he crosses any of the places where the first player put his bet, he<br />
+            pays four times as much as the opponent put on that field. <br />
+
+            It is important to recognise that all of the money which is owned by any of two players stays in the game. So, during the game no money  <br />
+            comes or leaves the playground. 
+        </p>
+        <h2>Conclusion</h2>
+        <p>
+            After the first round roles swich. This is also true for all of the following rounds. The game is finished when someone posesses all of the <br />
+            money and other none of it. 
+        </p>
+        <h3>
+        You can learn from the example at this link: 
+        <form class="gumb" action="/primer/">
+            <input type="submit" value="Example">
+        </form>
+        </h3>
+        <h3>ENJOY THE GAME OF QUADRATIC!</h3>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="Home">
+        </form>
+
+        %else:
+        <h1>Spielanleitung</h1>
+        <h2>Vor dem Anfang</h2>
+        <p>
+            Das Spiel is gemacht in die Richtung, dass zwei Spieler spielen es gleichzeitig auf dem gleichen Computer. 
+        </p>
+        <p>
+            Am Anfang des Spiels geben beide Spieler ihren Namen ein. Gleichzeitig wählen sie auch die Größe die Tabelle und <br />
+            der anfänglichen Betrag, der auf dem Konto von beiden Spieler gegeben wird.
+        </p>
+        <h2>Liegen der Wetten</h2>
+        <p>
+            Am Anfang des Spiels es is Rolle vom ersen Spieler zu liegen der Wetten. Man muss auf so viele Plätze das Geld liegen<br />
+            wie die Größe der Tabelle (beispielsweise: wenn die Größe der Tabelle 4x4 ist, dann muss man Wetten auf 4 Plätze liegen). <br />
+            Wichtig ist, dass der Spieler auf genau so viele Plätze die Wetten liegt, nicht mehr oder weniger. Dieses Geld ist bewegt <br />
+            aus dem Konto vom ersten Spieler zu dem vom zweiten. Wann die Wetten stattfinden, soll zweiter Spieler wegschauen.
+        </p>
+        <h2>Die Bewegung über der Tabelle</h2> 
+        <p>
+            Nach die Wetten der zweiter Spieler bewegt sich über der Tabelle. Er kann selbst Anfangsposition auswählen. Nach das bewegt er <br />
+            sich weiter Schritt zu Schritt (links, rechts oder hoch). Die Runde ist beendet als er erste Zeile erreicht. Wenn man der Platz<br />
+            erreicht, wo der anderen eine Wette gelegen hat, muss er viermal so viel zahlen, wie auf diesem Platz liegt. <br />
+
+            Es ist wichtig zu sehen, dass das ganzen Geld, das im Spiel ist, ist der Besitz vom einen Spieler. Kurz zu sagen, während dem Spiel <br />
+            kein Geld kommt oder geht aus. 
+        </p>
+        <h2>Schluss</h2>
+        <p>
+            Nach die erse Runde wechseln sich die Rollen. Das stimmt auch für alle nächste Runden. Das Spiel ist beendet als ein Spieler besitzt <br />
+            das ganzen Geld und der angeren kein. 
+        </p>
+        <h3>
+        Lernen Sie sich auf dem Beispiel: 
+        <form class="gumb" action="/primer/">
+            <input type="submit" value="Beispiel">
+        </form>
+        </h3>
+        <h3>GENISS DAS SPIEL QUADRATIC!</h3>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="Heim">
+        </form>
     </body>
 </html>

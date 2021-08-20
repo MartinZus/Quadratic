@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="/static/igra.css"/>
     </head>
     <body>
+        %if jezik == "S":
         <br />
         <br />
         <br />
@@ -31,6 +32,62 @@
                     </form>
                     </h2>
             </tr>
+        </table>
+        %elif jezik == "E":
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <table border="1" cellspacing="0" cellpading="30" width="80%" align="center">
+            <tr>
+                <td colspan="2" align="center">
+                    <h1>Quadratic</h1>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" width=50%>
+                    <h2>
+                    <form action="/prijava/">
+                        <input type="submit" value="New game"/>
+                    </form>
+                    </h2>
+                </td>
+                <td align="center" width=50%>
+                    <h2>
+                    <form action="/navodila/">
+                        <input type="submit" value="Playing instructions"/>
+                    </form>
+                    </h2>
+            </tr>
+            %else:
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <table border="1" cellspacing="0" cellpading="30" width="80%" align="center">
+                <tr>
+                    <td colspan="2" align="center">
+                        <h1>Quadratic</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width=50%>
+                        <h2>
+                        <form action="/prijava/">
+                            <input type="submit" value="Neues Spiel"/>
+                        </form>
+                        </h2>
+                    </td>
+                    <td align="center" width=50%>
+                        <h2>
+                        <form action="/navodila/">
+                            <input type="submit" value="Spielanleitung"/>
+                        </form>
+                        </h2>
+                </tr>
+            %end
         </table>
     </body>
 </html>

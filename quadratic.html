@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Prva stran</title>
+        <title>Igra</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="/static/igra.css"/>
     </head>
@@ -33,8 +33,17 @@
             </tr>
             %end
         </table>
+        %if jezik == "S":
         <form action="/stave1/" class="gumb" size=40pt>
             <input type="submit" value="nadaljuj">
+        </form>
+        %elif jezik == "E":
+        <form action="/stave1/" class="gumb" size=40pt>
+            <input type="submit" value="continue">
+        </form>
+        %else:
+        <form action="/stave1/" class="gumb" size=40pt>
+            <input type="submit" value="weiter">
         </form>
     </body>
 </html>

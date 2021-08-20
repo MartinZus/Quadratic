@@ -1,19 +1,17 @@
 <html>
     <head>
-        <title>Prva stran</title>
+        <title>Stave</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="/static/igra.css"/>
     </head>
     <body>
+        %if jezik == "S":
         %if n == 0:
         <h1>{{ime1}}, vnesite svoje stave. Vnesti morate točno toliko stav: {{velikost}}. Nato pritisnite gumb "stavi" pod tabelo.</h1> 
-        <h2>Prosim vnašajte številke in ne česa drugega, da se program ne sesuje.</h2>
         %elif n == 1:
-        <h1>Niste vnesli pravo število stav. Vnesti morate točno toliko stav:{{velikost}}. Nato pritisnite gumb "stavi" pod tabelo.</h1>
-        <h2>Prosim vnašajte številke in ne česa drugega, da se program ne sesuje.</h2>
+        <h1>Niste vnesli pravo število stav. Vnesti morate točno toliko stav: {{velikost}}. Nato pritisnite gumb "stavi" pod tabelo.</h1>
         %else:
         <h1>Na računu nimate dovolj denarja za takšno stavo. Vnesti morate točno toliko stav: {{velikost}}. Nato pritisnite gumb "stavi" pod tabelo.</h1>
-        <h2>Prosim vnašajte številke in ne česa drugega, da se program ne sesuje.</h2>
         %end
         <form action="/igra1/" class="gumb">
         <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
@@ -21,13 +19,66 @@
             <tr>
                 %for m in range(velikost):
                 <td>
-                    <input type="text" name="({{n}},{{m}})">
+                    <input type="number" name="({{n}},{{m}})" min="1" max="5000">
                 </td> 
                 %end
             </tr>
             %end
         </table>
         <h2><input type="submit" value="Stavi!" name="potrditev"></h2>
+        </form>
+
+        %elif jezik == "E":
+        %if n == 0:
+        <h1>{{ime1}}, enter your bets. You have to enter exactly that many bets: {{velikost}}. Than click on the button "bet" under.</h1> 
+        
+        %elif n == 1:
+        <h1>You didn't enter the right number of bets. You have to enter exactly that many bets: {{velikost}}. Than click on the button "bet" under.</h1>
+        
+        %else:
+        <h1>You haven't got enought money for that kind of bet. You have to enter exactly that many bets: {{velikost}}. Than click on the button "bet" under.</h1>
+       
+        %end
+        <form action="/igra1/" class="gumb">
+        <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
+            %for n in range(velikost):
+            <tr>
+                %for m in range(velikost):
+                <td>
+                    <input type="number" name="({{n}},{{m}})" min="1" max="5000">
+                </td> 
+                %end
+            </tr>
+            %end
+        </table>
+        <h2><input type="submit" value="Bet!" name="potrditev"></h2>
         </form> 
+        
+        %else:
+        %if n == 0:
+        <h1>{{ime1}}, geben Sie Ihre Wetten ein. Sie müssen genau so viele Wetten eingeben: {{velikost}}. Dann klicken Sie auf dem Knopf "Wett" da unten.</h1> 
+        
+        %elif n == 1:
+        <h1>Sie haben nich die richtige Nummer der Wetten eingegeben. Sie müssen genau so viele Wetten eingeben: {{velikost}}. Dann klicken Sie auf dem Knopf "Wett" da unten.</h1>
+        
+        %else:
+        <h1>Sie haben nicht genug Geld. Sie müssen genau so viele Wetten eingeben: {{velikost}}. Dann klicken Sie auf dem Knopf "Wett" da unten.</h1>
+        
+        %end
+        <form action="/igra1/" class="gumb">
+        <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
+            %for n in range(velikost):
+            <tr>
+                %for m in range(velikost):
+                <td>
+                    <input type="number" name="({{n}},{{m}})" min="1" max="5000">
+                </td> 
+                %end
+            </tr>
+            %end
+        </table>
+        <h2><input type="submit" value="Wett!" name="potrditev"></h2>
+        </form>
+        %end 
     </body>
 </html>

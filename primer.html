@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <title>Primer</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="/static/igra.css"/>
+    </head>
+    <body>
+        %if jezik == "S":
+        <h3>V zgornji tabeli vidite primer stav. Vi pa se premikajte, tako da se izognete plačevanju.</h3>
+        %elif jezik == "E":
+        <h3>In the upper table you see an example of bets. You, on the other hand, move around to avoid paying.</h3>
+        %else:
+        <h3>In der Tablle oben können Sie ein Beispiel der Wetten sehen. Bewegen sich so, dass sie nichts bezahlen werden.</h3>
+        %end
+        
+        <table border="1" cellspacing="0" cellpadding="30" width="30%" align="center">
+            <tr>
+                <td>
+                    20
+                </td>
+                <td>
+                    0
+                </td>
+                <td>
+                    0
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    0
+                </td>
+                <td>
+                    20
+                </td>
+                <td>
+                    0
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    0
+                </td>
+                <td>
+                    20
+                </td>
+                <td>
+                    0
+                </td>
+            </tr>
+        </table>
+        %if jezik == "S":
+        <h3>Če se polje obarva zeleno ste na položaju, na katerega nasprotnik ni stavil.</h3>
+        %elif jezik == "E":
+        <h3>If the field is in green color, you are on the place without bets.</h3>
+        %else:
+        <h3>Wenn der Platz grüne Farbe hat, dann sind Sie auf dem Platz ohne Wetten.</h3>
+        %end
+        <table border="1" cellspacing="0" cellpadding="30" width="30%" align="center">
+            %for n in range(3):
+            <tr>
+                %for m in range(3):
+                %if primer.vrstica == n and primer.stolpec == m:
+                %if primer.matrika[n][m] != 0:
+                    <td class="rpolje">
+                        
+                    </td>
+                %else:
+                    <td class="zpolje">
+
+                    </td>
+                %end
+                %else:
+                <td>
+
+                </td>
+                %end
+                %end 
+            </tr>
+            %end
+        </table>
+        %if primer.vrstica == 0:
+        %if jezik == "S":
+        <form action="/" class="gumb">
+            <input type="submit" value="domov">
+        </form>
+        %elif jezik == "E":
+        <form action="/" class="gumb">
+            <input type="submit" value="home">
+        </form>
+        %else:
+        <form action="/" class="gumb">
+            <input type="submit" value="heim">
+        </form>
+        %end
+        %else:
+        %if jezik == "S":
+        <h3>Izberite premik:</h3>
+        <form class="gumb" action="/primer1/">
+            <select name="premik" size="3">
+                <option selected="selected" value="L">LEVO</option>
+                <option value="G">GOR</option>
+                <option value="D">DESNO</option>
+            </select>
+            <input type="submit" value="Premakni se">
+        </form>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="domov">
+        </form>
+        %elif jezik == "E":
+        <h3>Choose the move:</h3>
+        <form class="gumb" action="/primer1/">
+            <select name="premik" size="3">
+                <option selected="selected" value="L">LEFT</option>
+                <option value="G">UP</option>
+                <option value="D">RIGHT</option>
+            </select>
+            <input type="submit" value="Move">
+        </form>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="home">
+        </form>
+        %else:
+        <h3>Auswählen Sie der Bewegung:</h3>
+        <form class="gumb" action="/primer1/">
+            <select name="premik" size="3">
+                <option selected="selected" value="L">LINKS</option>
+                <option value="G">HOCH</option>
+                <option value="D">RECHTS</option>
+            </select>
+            <input type="submit" value="Bewege sich">
+        </form>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="heim">
+        </form>
+        %end
+        %end
+    </body>
+</html>

@@ -1,12 +1,18 @@
-.polje {
+.rpolje {
     background-color: red;
+}
+.zpolje {
+    background-color: chartreuse;
+}
+.poteza {
+    background-color: yellow;
 }
 table {
     background-color: bisque;
 }
 
 body {
-    background-color: chartreuse;
+    background-color:cyan;
 }
 .gumb {
     text-align: center;

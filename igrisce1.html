@@ -14,7 +14,7 @@
                 <td>
                     <h3>{{igra.denar1}}</h3>
                 </td>
-                <td>
+                <td class="poteza">
                     <h2>{{ime2}}</h2>
                 </td>
                 <td>
@@ -22,15 +22,27 @@
                 </td>
             </tr>
         </table>
+        %if jezik == "S":
         <h2 class="gumb">Igralec {{ime1}} je na vaš trenutni položaj stavil {{mon}}.</h2>
+        %elif jezik == "E":
+        <h2 class="gumb">Player {{ime1}} bet {{mon}} on your current position.</h2>
+        %else:
+        <h2 class="gumb">Spieler {{ime1}} hat auf deiner aktuelle Position {{mon}} gewettet.</h2>
+        %end
         <table border="1" cellspacing="0" cellpadding="60" width="50%" align="center">
             %for n in range(velikost):
             <tr>
                 %for m in range(velikost):
                 %if igra.vrstica == n and igra.stolpec == m:
-                <td class="polje">
-                    
-                </td>
+                %if igra.matrika[igra.vrstica][igra.stolpec] != 0:
+                    <td class="rpolje">
+                        
+                    </td>
+                %else:
+                    <td class="zpolje">
+
+                    </td>
+                %end
                 %else:
                 <td>
 
@@ -40,14 +52,41 @@
             </tr>
             %end
         </table>
+        %if jezik == "S":
         %if igra.vrstica != 0:
-        <h2 class="gumb">Vnesite željen premik (L(levo), D(desno), G(gor)):</h2>
+        <h2 class="gumb">Vnesite željen premik:</h2>
+        %if igra.stolpec != 0 and igra.stolpec != velikost - 1:
         <h2>
             <form action="/gibanica1/" class="gumb">
-            <input type="text" name="vnos">
+                <select name="vnos" size="3">
+                    <option selected="selected" value="L">LEVO</option>
+                    <option value="G">GOR</option>
+                    <option value="D">DESNO</option>
+                </select>
             <input type="submit" value="Premakni se">
             </form>
         </h2>
+        %elif igra.stolpec == 0:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="2">
+                    <option selected="selected" value="G">GOR</option>
+                    <option value="D">DESNO</option>
+                </select>
+            <input type="submit" value="Premakni se">
+            </form>
+        </h2>
+        %else:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="2">
+                    <option selected="selected" value="L">LEVO</option>
+                    <option value="G">GOR</option>
+                </select>
+            <input type="submit" value="Premakni se">
+            </form>
+        </h2>
+        %end
         %else:
         <h2>
             <form action="/stave2/" class="gumb">
@@ -55,18 +94,140 @@
             </form>
         </h2>
         %end
+
+        %elif jezik == "E":
+        %if igra.vrstica != 0:
+        <h2 class="gumb">Enter wanted move:</h2>
+        %if igra.stolpec != 0 and igra.stolpec != velikost - 1:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="3">
+                    <option selected="selected" value="L">LEFT</option>
+                    <option value="G">UP</option>
+                    <option value="D">RIGHT</option>
+                </select>
+            <input type="submit" value="Move">
+            </form>
+        </h2>
+        elif igra.stolpec == 0:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="2">
+                    <option value="G" selected="selected">UP</option>
+                    <option value="D">RIGHT</option>
+                </select>
+            <input type="submit" value="Move">
+            </form>
+        </h2>
         %else:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="2">
+                    <option selected="selected" value="L">LEFT</option>
+                    <option value="G">UP</option>
+                </select>
+            <input type="submit" value="Move">
+            </form>
+        </h2>
+        %end
+
+        %else:
+        <h2>
+            <form action="/stave2/" class="gumb">
+                <input type="submit" value="Next round">
+            </form>
+        </h2>
+        %end
+
+        %else:
+        %if igra.vrstica != 0:
+        <h2 class="gumb">Geben Sie die gewünschte Bewegung ein:</h2>
+        %if igra.stolpec != 0 and igra.stolpec != velikost - 1:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="3">
+                    <option selected="selected" value="L">LINKS</option>
+                    <option value="G">HOCH</option>
+                    <option value="D">RECHTS</option>
+                </select>
+            <input type="submit" value="Bewege sich">
+            </form>
+        </h2>
+        %elif igra.stolpec == 0:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="2">
+                    <option value="G" selected="selected">HOCH</option>
+                    <option value="D">RECHTS</option>
+                </select>
+            <input type="submit" value="Bewege sich">
+            </form>
+        </h2>
+        %else:
+        <h2>
+            <form action="/gibanica1/" class="gumb">
+                <select name="vnos" size="2">
+                    <option selected="selected" value="L">LINKS</option>
+                    <option value="G">HOCH</option>
+                </select>
+            <input type="submit" value="Bewege sich">
+            </form>
+        </h2>
+        %end
+
+        %else:
+        <h2>
+            <form action="/stave2/" class="gumb">
+                <input type="submit" value="Nächste Runde">
+            </form>
+        </h2>
+        %end
+        %end
+
+        %else:
+        %if jezik == "S":
         %if igra.denar1 > 0:
         <h1>Igralec z imenom {{ime1}} je zamgovalec!!!</h1>
         <h2>Upam, da ste uživali v igri Quadratic</h2>
-        <form action="/" class="gumb">
+        <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Domov">
         </form>
         %else:
         <h1>Igralec z imenom {{ime2}} je zamgovalec!!!</h1>
         <h2>Upam, da ste uživali v igri Quadratic</h2>
-        <form action="/" class="gumb">
+        <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Domov">
+        </form>
+        %end
+
+        %elif jezik == "E":
+        %if igra.denar1 > 0:
+        <h1>Player named {{ime1}} is the winner!!!</h1>
+        <h2>We hope you enjoyed Quadratic</h2>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="Home">
+        </form>
+        %else:
+        <h1>Player named {{ime2}} is the winner!!!</h1>
+        <h2>We hope you enjoyed Quadratic</h2>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="Home">
+        </form>
+        %end
+
+        
+        %else:
+        %if igra.denar1 > 0:
+        <h1>Spieler mit dem Name {{ime1}} hat gewinnt!!!</h1>
+        <h2>Wir hoffen Sie haben Quadratic genossen.</h2>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="Heim">
+        </form>
+        %else:
+        <h1>Spieler mit dem Name {{ime2}} hat gewinnt!!!</h1>
+        <h2>Wir hoffen Sie haben Quadratic genossen.</h2>
+        <form action="/prva_stran1/" class="gumb">
+            <input type="submit" value="Heim">
         </form>
         %end
         %end

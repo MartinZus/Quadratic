@@ -1,19 +1,20 @@
 <html>
     <head>
-        <title>Prva stran</title>
+        <title>Prijava</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="/static/igra.css"/>
     </head>
     <body>
+        %if jezik == "S":
         <br />
         <br />
         <h3>
         <blockquote>
         <form action="/quadratic/">
-            Ime prvega igralca: <input type="text" name="ime prvega igralca"> <br />
-            Ime drugega igralca: <input type="text" name="ime drugega igralca"> <br />
-            Začetni znesek (200 - 5000): <input type="text" name="znesek"> <br />
-            Velikost (3 - 8): <input type="text" name="velikost"> <br />
+            Ime prvega igralca: <input type="text" name="ime prvega igralca" required> <br />
+            Ime drugega igralca: <input type="text" name="ime drugega igralca" required> <br />
+            Začetni znesek (200 - 5000): <input type="text" name="znesek" required> <br />
+            Velikost (3 - 5): <input type="text" name="velikost" required> <br />
             <h2><input type="submit" value="Začni igro"></h2>
         </form>
         </blockquote>
@@ -22,6 +23,50 @@
         <h2>Začetni znesek se mora gibati med 200 in 5000</h2>
         %end
         %if n == 1:
-        <h2>Velikost tabele se mora gibati med 3 in 8</h2>
+        <h2>Velikost tabele se mora gibati med 3 in 5</h2>
+        %end
+
+        %elif jezik == "E":
+        <br />
+        <br />
+        <h3>
+        <blockquote>
+        <form action="/quadratic/">
+            Name of the first competitor: <input type="text" name="ime prvega igralca" required> <br />
+            Name of the second competitor: <input type="text" name="ime drugega igralca" required> <br />
+            Initial amount (200 - 5000): <input type="text" name="znesek" required> <br />
+            Size of the table (3 - 5): <input type="text" name="velikost" required> <br />
+            <h2><input type="submit" value="Begin the game"></h2>
+        </form>
+        </blockquote>
+        </h3>
+        %if m == 1:
+        <h2>Initial amount must be between 200 and 5000</h2>
+        %end
+        %if n == 1:
+        <h2>Size of the table must be between 3 and 5</h2>
+        %end
+        
+        %else:
+        <br />
+        <br />
+        <h3>
+        <blockquote>
+        <form action="/quadratic/">
+            Der Name des ersten Spielers: <input type="text" name="ime prvega igralca" required> <br />
+            Der Name des zweiten Spielers: <input type="text" name="ime drugega igralca" required> <br />
+            Anfangsbetrag (200 - 5000): <input type="text" name="znesek" required> <br />
+            Größe der Tabelle (3 - 5): <input type="text" name="velikost" required> <br />
+            <h2><input type="submit" value="Beginn das Spiel"></h2>
+        </form>
+        </blockquote>
+        </h3>
+        %if m == 1:
+        <h2>Angangsbetrag muss zwischen 200 und 5000 sein.</h2>
+        %end
+        %if n == 1:
+        <h2>Größe der Tabelle muss zwischen 3 und 5 sein.</h2>
+        %end
+        %end
     </body>
 </html>
