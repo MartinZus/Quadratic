@@ -185,13 +185,13 @@
         %else:
         %if jezik == "S":
         %if igra.denar1 > 0:
-        <h1>Igralec z imenom {{ime1}} je zamgovalec!!!</h1>
+        <h1>Igralec z imenom {{ime2}} je zamgovalec!!!</h1>
         <h2>Upam, da ste uživali v igri Quadratic</h2>
         <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Domov">
         </form>
         %else:
-        <h1>Igralec z imenom {{ime2}} je zamgovalec!!!</h1>
+        <h1>Igralec z imenom {{ime1}} je zamgovalec!!!</h1>
         <h2>Upam, da ste uživali v igri Quadratic</h2>
         <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Domov">
@@ -200,13 +200,13 @@
 
         %elif jezik == "E":
         %if igra.denar1 > 0:
-        <h1>Player named {{ime1}} is the winner!!!</h1>
+        <h1>Player named {{ime2}} is the winner!!!</h1>
         <h2>We hoped you enjoyed Quadratic</h2>
         <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Home">
         </form>
         %else:
-        <h1>Player named {{ime2}} is the winner!!!</h1>
+        <h1>Player named {{ime1}} is the winner!!!</h1>
         <h2>We hope you enjoyed Quadratic</h2>
         <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Home">
@@ -216,13 +216,13 @@
         
         %else:
         %if igra.denar1 > 0:
-        <h1>Spieler mit dem Name {{ime1}} hat gewinnt!!!</h1>
+        <h1>Spieler mit dem Name {{ime2}} hat gewinnt!!!</h1>
         <h2>Wir hoffen Sie haben Quadratic genossen.</h2>
         <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Heim">
         </form>
         %else:
-        <h1>Spieler mit dem Name {{ime2}} hat gewinnt!!!</h1>
+        <h1>Spieler mit dem Name {{ime1}} hat gewinnt!!!</h1>
         <h2>Wir hoffen Sie haben Quadratic genossen.</h2>
         <form action="/prva_stran1/" class="gumb">
             <input type="submit" value="Heim">
